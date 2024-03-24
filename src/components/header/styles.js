@@ -13,6 +13,8 @@ export const Container = styled.div`
 
        display: flex;
        justify-content: space-between;
+       gap: 64px;
+       align-items: center;
        padding: 24px 123px;
 
        > h2{
@@ -26,6 +28,7 @@ export const Profile = styled.div`
 
        display: flex;
        align-items: center;
+       
 
        > img{
             width: 56px;
