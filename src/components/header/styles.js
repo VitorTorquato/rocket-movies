@@ -34,6 +34,7 @@ export const Profile = styled.div`
             width: 56px;
             height: 56px;
             border-radius: 50%;
+            border: 2px solid ${({theme}) => theme.COLORS.BACKGROUND_700};
         }
 
        > div{

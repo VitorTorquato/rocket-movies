@@ -1,6 +1,8 @@
 import { Container,Profile } from "./styles";
+
+
 import { Input } from '../input'
- 
+import { TextButton } from "../textButton"; 
 
 export function Header(){
         return(
@@ -10,7 +12,7 @@ export function Header(){
                 <Profile>
                     <div>
                         <span>Vitor Torquato</span>
-                        
+                        <TextButton title="Sair"/>
                     </div>
                     <img src="https://github.com/vitortorquato.png" alt="foto do usuario do github Vitor Torquato" />
                 </Profile>
