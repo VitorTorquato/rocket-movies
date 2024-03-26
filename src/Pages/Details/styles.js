@@ -20,6 +20,9 @@ export const Container = styled.div`
     `;
 
 export const Content = styled.div`
+        max-width: 1137px;
+        margin:  0 auto;
+        
         display: flex;
         flex-direction: column;
         gap: 40px;
@@ -65,11 +68,6 @@ export const Content = styled.div`
         }
 
         
-        max-width: 1137px;
-        margin:  0 auto;
-
-        display: flex;
-        flex-direction: column;
 
 
         > p{
