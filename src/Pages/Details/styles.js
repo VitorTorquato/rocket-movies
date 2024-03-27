@@ -15,24 +15,31 @@ export const Container = styled.div`
         grid-area: content;
         overflow-y: auto;
         padding: 64px 0;
+        
     }
     
     `;
 
 export const Content = styled.div`
-        max-width: 1137px;
+       
+        width: 1137px;
         margin:  0 auto;
         
         display: flex;
         flex-direction: column;
         gap: 40px;
+
+       
+
+      
+    
         
         > div{
             display: flex;
             flex-direction: column;
-
+            
             gap: 22px;
-
+            
             > button:first-child{
                 display: flex;
                 align-items: center;
@@ -51,7 +58,7 @@ export const Content = styled.div`
                 display:flex;
                 align-items: center;
                 gap: 12px;
-
+                
 
                 >img{
                     width: 16px;
@@ -59,17 +66,22 @@ export const Content = styled.div`
                     border-radius: 50%;
                     border: 2px solid ${({theme}) => theme.COLORS.BACKGROUND_700};
                 }
-
+                
                 > svg{
                     font-size: 16px;
                     color: ${({theme}) => theme.COLORS.PINK_1};
                 }
             };
+            
+                    > footer{
+                        display: flex;
+                        gap: 12px;
+                    }
         }
 
         
-
-
+        
+        
         > p{
             font-size: 16px;
             text-align: justify;
