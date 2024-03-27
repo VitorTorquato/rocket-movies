@@ -13,11 +13,16 @@ export const Container = styled.div`
         "header"
         "content";
 
+        overflow: hidden;
+
         > main{
              grid-area:content ;
              padding: 64px 0;
-             overflow-y:auto ;
-             overflow-y: hidden;
+            
+             width: 100%;
+                max-width: 1137px;
+                margin: 4.8px auto;
+           
              
              header{
                      display: flex;
@@ -39,13 +44,25 @@ export const Container = styled.div`
 
 
 export const Content = styled.div`
-        max-width: 1170px;
+       
         display: flex;
         flex-direction: column;
-        margin: 64px auto;
+        gap: 24px;
+
+        margin-top: 32px;
+      
         
-        overflow-y:auto ;
-        gap:24px ;
+        max-height: calc(100vh - 297px);
+        overflow-y: auto;
+
+        ::-webkit-scrollbar {
+        width: 8px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+        background-color: ${({ theme }) => theme.COLORS.PINK_1};
+        border-radius: 8px;
+        }
         
 `;
 
