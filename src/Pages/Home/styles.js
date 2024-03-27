@@ -29,7 +29,7 @@ export const Container = styled.div`
                 align-items: center;
                 justify-content: space-between;
                 
-                max-width: 1170px;
+                max-width: 1137px;
                 margin: 0 auto;
 
                 
@@ -56,7 +56,7 @@ export const Content = styled.div`
         overflow-y: auto;
 
         ::-webkit-scrollbar {
-        width: 8px;
+        width: px;
         }
 
         ::-webkit-scrollbar-thumb {

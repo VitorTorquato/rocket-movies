@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.button`
      
      width: calc(100%  - 8px);
-     height: 224px;
+     height: 240px;
 
      margin-right: 8px;
      
@@ -34,6 +34,7 @@ export const Container = styled.button`
 
           max-height: 53px;
           line-height: 19px;
+         
 
 
           overflow: hidden;
@@ -42,7 +43,16 @@ export const Container = styled.button`
           display: -webkit-box;
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
+          
 
+     }
+
+     > footer{
+          width: 100%;
+          display: flex;
+          gap: 10px;
+          margin-top: 16px;
+        
      }
 
 `;
