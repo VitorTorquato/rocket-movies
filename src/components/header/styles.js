@@ -41,7 +41,9 @@ export const Profile = styled.div`
        > div{
               display: flex;
               flex-direction: column;
-
+              text-align: end;
+              
+            
 
               margin-right:16px;
               line-height: 24px;
@@ -52,5 +54,7 @@ export const Profile = styled.div`
 
               }
        }
+
+   
 
 `;

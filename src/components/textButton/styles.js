@@ -8,8 +8,12 @@ export const  Container = styled.button`
         border:none;
 
         font-size: 14px;
-        color:${({theme}) => theme.COLORS.TEXT};
-        text-align: right;
+        color:${({theme}) => theme.COLORS.PINK_1};
+        
+
+        display: flex;
+        align-items: center;
+        gap: 8px;
 
         
 

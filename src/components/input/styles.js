@@ -7,9 +7,11 @@ export const Container = styled.div`
     align-items: center;
     flex: 1;
 
+    margin-bottom:8px;
+
 
     background-color: ${({theme}) => theme.COLORS.BACKGROUND_700};
-    color: ${({theme}) => theme.COLORS.BACKGROUND_700};
+    color: ${({theme}) => theme.COLORS.TEXT};
 
     border-radius: 10px;
 
