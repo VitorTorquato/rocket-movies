@@ -5,7 +5,7 @@ export const Container = styled.div`
     width: 100%;
     display: flex;
     align-items: center;
-    flex: 1;
+   
 
     margin-bottom:8px;
 
@@ -15,11 +15,11 @@ export const Container = styled.div`
 
     border-radius: 10px;
 
-
+    
     > input{
-
-        width: 100%;
+        
         height: 56px;
+        width: 100%;
         
         padding: 19px 24px;
         

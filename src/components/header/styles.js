@@ -41,7 +41,7 @@ export const Profile = styled.div`
        > div{
               display: flex;
               flex-direction: column;
-              text-align: end;
+              
               
             
 
@@ -56,5 +56,54 @@ export const Profile = styled.div`
        }
 
    
+
+`;
+
+export const Logout = styled.button`
+       background: none;
+       border: none;
+
+       font-size: 14px;
+       color: ${({theme}) => theme.COLORS.TEXT};
+
+       text-align: right;
+
+`;
+
+export const Search = styled.div`
+       width: 100%;
+       flex: 1;
+
+
+       background-color: ${({theme}) => theme.COLORS.BACKGROUND_700};
+       color: ${({theme}) => theme.COLORS.TEXT};
+
+       border-radius: 10px;
+      
+      
+       >input{
+             
+
+              width: 100%;
+              height: 56px;
+
+              padding: 19px 24px;
+
+              color: ${({theme}) => theme.COLORS.WHITE};
+
+              background:transparent;
+              border: 0;
+
+
+              &::placeholder{
+              ${({theme}) => theme.COLORS.TEXT};
+
+}
+
+
+
+}
+
+       
 
 `;

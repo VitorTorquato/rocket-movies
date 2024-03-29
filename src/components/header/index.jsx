@@ -1,18 +1,24 @@
-import { Container,Profile } from "./styles";
+import { Container,Search,Profile ,Logout} from "./styles";
 
 
-import { Input } from '../input'
-import { TextButton } from "../textButton"; 
+
+
 
 export function Header(){
         return(
             <Container>
                 <h2>RocketMovies</h2>
-                <Input placeholder="Pesquise pelo título"/>
+                <Search>
+                    <input type="text" 
+                    placeholder="Pesquise pelo título"
+                     />
+                </Search>
                 <Profile>
                     <div>
                         <span>Vitor Torquato</span>
-                        <TextButton title="Sair"/>
+                        <Logout type="button">
+                            Sair
+                        </Logout>
                     </div>
                     <img src="https://github.com/vitortorquato.png" alt="foto do usuario do github Vitor Torquato" />
                 </Profile>

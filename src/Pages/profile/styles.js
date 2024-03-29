@@ -62,7 +62,7 @@ export const Avatar = styled.div`
             right: 6px;
             bottom: 6px;
 
-
+            cursor: pointer;
 
 
             input{
