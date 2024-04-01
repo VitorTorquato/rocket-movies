@@ -6,7 +6,7 @@ import GlobalStyles from './Styles/global'
 import theme from './Styles/theme'
 
 
-import { SignIn } from './Pages/SignIn'
+import { SignIn } from './Pages/signIn'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
