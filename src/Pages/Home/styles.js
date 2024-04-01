@@ -6,6 +6,7 @@ export const Container = styled.div`
         height: 100vh;
 
 
+
         display: grid;
         grid-template-rows: 116px auto;
 
@@ -17,11 +18,11 @@ export const Container = styled.div`
 
         > main{
              grid-area:content ;
-             padding: 64px 0;
+             
             
              width: 100%;
                 max-width: 1137px;
-                margin: 4.8px auto;
+                margin: 48px auto;
            
              
              header{
@@ -56,7 +57,7 @@ export const Content = styled.div`
         overflow-y: auto;
 
         ::-webkit-scrollbar {
-        width: px;
+        width: 8px;
         }
 
         ::-webkit-scrollbar-thumb {
