@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import backGroundImg from '../../assets/background.png'
 
 
 export const Container = styled.div`
@@ -64,7 +64,7 @@ export  const Form = styled.form`
     >a{
         text-align:center;
         display: block;
-        margin-top: 124px ;
+        margin: 84px 0 32px 0 ;
         font-size: 14px;
         color: ${({theme}) => theme.COLORS.PINK_1};
         text-decoration: none;
@@ -74,5 +74,13 @@ export  const Form = styled.form`
 
 
 
+
+`;
+
+export const Background = styled.div`
+        flex: 1;
+        background: url(${backGroundImg}) no-repeat center center;
+        background-size: cover;
+        opacity: .1;
 
 `;
