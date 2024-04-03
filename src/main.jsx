@@ -6,14 +6,14 @@ import GlobalStyles from './Styles/global'
 import theme from './Styles/theme'
 
 
-import { NewMovie } from './Pages/newMovie'
+import { Routes } from './routes'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
       <GlobalStyles/>
-      <NewMovie />
+      <Routes />
     </ThemeProvider>
   </React.StrictMode>,
 )

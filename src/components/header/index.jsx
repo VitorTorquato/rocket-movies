@@ -13,7 +13,7 @@ export function Header(){
                     placeholder="Pesquise pelo título"
                      />
                 </Search>
-                <Profile>
+                <Profile to='/profile'>
                     <div>
                         <span>Vitor Torquato</span>
                         <Logout type="button">

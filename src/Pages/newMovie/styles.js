@@ -18,12 +18,27 @@ export const Container = styled.div`
 
          overflow-y:auto;
             
-        width: 100%;
-        max-width: 1200px;
+         width: 100%;
+         max-width: 1200px;
         margin: 10px auto;
         
     }
-`;
+    
+    .tags{
+        display: flex;
+        flex-wrap: wrap;
+        flex-grow: 1;
+        gap: 10px;
+        width: 100%;
+        padding: 16px;
+        background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
+        border-radius: 8px;
+        
+        
+        
+    }
+
+    `;
 
 export const Form = styled.form`
         display: flex;
@@ -42,18 +57,24 @@ export const Form = styled.form`
         text-decoration: none;
         }
     }
-        
+
         >div{
             display: flex;
-            gap: 10px;
+            gap: 40px;
+        }    
+        
+        >.buttons{
+            display: flex;
+            gap: 40px;
+
+            >:nth-child(1){
+                background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
+                color: ${({theme}) => theme.COLORS.PINK_1};
+            }
         }
-        
-        
-`;
-
-export const Section = styled.section`
-    
-    
+       
+      
    
-
+    
 `;
+

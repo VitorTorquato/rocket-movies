@@ -1,21 +1,24 @@
 import { FiArrowLeft } from 'react-icons/fi'
 import { Container , Form } from "./styles";
 
+import { Link } from "react-router-dom";
+
 import { Header } from '../../components/header'
-import { Tag } from '../../components/tags'
 import { Input } from '../../components/input'
 import { TextArea } from '../../components/textArea'
 import { Section } from '../../components/section'
+import { MovieItem } from '../../components/movieItem'
+import { Button } from '../../components/button'
  
 
 export function NewMovie(){
     return(
         <Container>
             	<Header/>
-                <main>Marca
+                <main>
                     <Form>
                         <header>
-                            <a href="/"> <FiArrowLeft/> Voltar</a>
+                            <Link to='/' > <FiArrowLeft/> Voltar</Link>
                             <h1>Novo filme</h1>
                         </header>
                         
@@ -29,13 +32,24 @@ export function NewMovie(){
                         </div>
 
                         <TextArea  placeholder="Observaçoes"/>
+                            
                             <Section title="Marcadores">
-                                
-                                
-                                   <Tag/>
-                                
+                            <div className='tags'>
+                                <MovieItem
+                                    value="React"
+                                    
+                                />
+                                <MovieItem isNew placeholder="Novo marcador"/>
+                              
+
+                            </div> 
+                                    
                             </Section>
-                    
+
+                            <div className='buttons'>
+                                <Button title="Excluir filme"/>
+                                <Button title="Salvar alterações"/>
+                            </div>
                     </Form>
                 </main>
         </Container>

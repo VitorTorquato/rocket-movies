@@ -1,6 +1,6 @@
 
 import { FiMail , FiLock} from 'react-icons/fi'
-
+import { Link } from 'react-router-dom';
 import { Container ,Form, Background} from "./styles";
 
 
@@ -33,7 +33,8 @@ export function LogIn(){
                     title="Entrar"
                 />
 
-                <a href="/">Crie sua conta</a>
+                <Link 
+                to="/register">Crie sua conta</Link>
 
             </Form>
 
