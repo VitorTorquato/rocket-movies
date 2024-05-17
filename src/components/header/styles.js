@@ -29,7 +29,7 @@ export const Container = styled.div`
 export const Profile = styled(Link)`
 
        display: flex;
-       align-items: center;
+       
        text-decoration: none ;
 
        > img{
@@ -69,6 +69,9 @@ export const Logout = styled.button`
 
        text-align: right;
 
+       position: absolute;
+       right: 8.5rem;
+       top: 3.5rem;
 `;
 
 export const Search = styled.div`

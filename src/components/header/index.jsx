@@ -1,16 +1,21 @@
 import { Container,Search,Profile ,Logout} from "./styles";
 
 
+
 import { useAuth } from "../../hook/auth";
+
+import { api } from "../../service/api";
+import avatarPlaceHolder from '../../assets/avatar_placeholder.svg'
+
 
 
 
 
 export function Header(){
 
-        const { logOut} = useAuth();
+        const { logOut , user} = useAuth();
 
-      
+        const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceHolder;
 
 
         return(
@@ -26,7 +31,8 @@ export function Header(){
                         <span>Vitor Torquato</span>
                         
                     </div>
-                    <img src="https://github.com/vitortorquato.png" alt="foto do usuario do github Vitor Torquato" />
+                    <img src={avatarURL}
+                    alt={user.name} />
                 </Profile>
                 <Logout
                          type="button"

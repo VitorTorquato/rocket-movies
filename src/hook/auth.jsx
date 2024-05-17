@@ -9,15 +9,15 @@ const AuthContext = createContext({});
 function AuthProvider({children}){
 
     const[data, setData] = useState({})
-
-
+ 
+    
     async function signIn({ email, password}){
-
+        
         try{
-
-        const response =  await api.post("/sessions" , { email , password});
-        const { user , token} = response.data;
-
+            
+            const response =  await api.post("/sessions" , { email , password});
+            const { user , token} = response.data;
+            
 
         localStorage.setItem("@rocketmovies:user" , JSON.stringify(user));    
         localStorage.setItem("@rocketmovies:token" , token );    
@@ -37,6 +37,45 @@ function AuthProvider({children}){
         }
 
     }
+
+
+    async function updateUser({user ,avatarFile}){
+        try{
+
+            if(avatarFile){
+                const fileUploadForm = new FormData();
+
+                fileUploadForm.append("avatar" , avatarFile);
+
+                const response = await api.patch('users/avatar' , fileUploadForm);
+                user.avatar = response.data.avatar
+            }
+
+
+         await api.put("users" , user);
+         
+         localStorage.setItem("@rocketmovies:user" , JSON.stringify(user));
+
+         setData({
+            user,
+            token: data.token
+
+         })
+
+         alert("Perfil atualizado com sucesso");
+          
+
+
+        }catch(error){
+            if(error.response){
+                alert(error.response.data.message)
+            }else{
+                alert("Não foi possivel atualizar o perfil!")
+            }
+        }
+
+    }
+
 
     function logOut(){
 
@@ -70,6 +109,7 @@ return(
 
     <AuthContext.Provider value={{
         signIn,
+        updateUser,
         logOut,
         user: data.user
     }}
