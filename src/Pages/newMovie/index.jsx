@@ -43,7 +43,7 @@ export function NewMovie(){
 
     async function handleNewMovie(){
 
-
+       try{
         if(!title){
            return alert('digite o titulo do filme')
         }
@@ -71,6 +71,15 @@ export function NewMovie(){
 
 
         navigate('/')
+    }catch(error){
+        if(error.response){
+            alert(error.response.data.message)
+        }else{
+            alert("Não foi possivel cadastrar a nota!")
+        }
+    }
+    
+
     }       
 
     
