@@ -1,6 +1,21 @@
+import { useState , useEffect } from "react";
+
+import { useNavigate } from "react-router-dom";
+
+import { useParams } from "react-router-dom";
+
 import { Container , Content } from "./styles"
 
 import { FiArrowLeft ,  FiClock  } from "react-icons/fi";
+
+
+import { useAuth } from "../../hook/auth";
+
+
+import avatarPlaceHolder from '../../assets/avatar_placeholder.svg'
+import moment from "moment-timezone";
+
+import { api } from "../../service/api";
 
 import { Header } from "../../components/header"
 import { TextButton } from "../../components/textButton"
@@ -8,51 +23,95 @@ import { Rating } from '../../components/rating'
 import { Tag } from '../../components/tags'
 
 export function Details() {
-  
-   let data={
-    title: "Star Wars",
-    rating: '4',
-    description: "Em Star Wars: Episódio VI, o Imperador Palpatine (Ian McDiarmid) está supervisionando a construção de uma nova Estrela da Morte. Enquanto isso, Luke Skywalker (Mark Hamill) liberta Han Solo (Harrison Ford) e a Princesa Leia (Carrie Fisher) das mãos de Jabba, o pior bandido das galáxias. Luke só se tornará um cavaleiro Jedi quando destruir Darth Vader, que ainda pretende atraí-lo para o lado negro da Força. No entanto a luta entre os dois vai revelar um inesperado segredo.",
-    author: "Vitor Torqauto ",
-    created_at: "27/05/2024 ás 08:00AM",
-    tags: [
-        { id: "1" , name:"Ficção Ciêntifica"},
-        { id: "2" , name:"Ação"},
-        { id: "3" , name:"Aventura"}
-    ]
-    
-} ;
 
+  const { user } = useAuth();
+  
+  const [data,setData] = useState();
+
+  const navigate = useNavigate();
+  const params = useParams();
+
+  const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceHolder;
+
+ function handleBack(){
+    navigate('/')
+ }
+
+ 
+ async function handleDeleteMovie(){
+   
+   const confirm = window.confirm("Deseja  realmente excluir esse filme? ")
+   
+   
+   if(confirm){
+     await api.delete(`/notes/${params.id}`)
+     
+     navigate(-1);
+    }
+  }
+  
+  const formateDate = moment
+  .tz("America/Sao_Paulo")
+  .format("DD/MM/YYYY HH:mm a ")
+
+  useEffect(() => {
+
+    async function fetchMovie(){
+      const response =  await api.get(`notes/${params.id}`);
+      setData(response.data);
+
+    }
+    fetchMovie();
+
+  } , [])
 
   return (
     <Container >
         <Header/>
       
+        {
+
+          data &&
          <main>
             <Content>
-                { data && (
+                
                 <div>
-                    <TextButton icon={FiArrowLeft} title="Voltar"/>
+                    <TextButton 
+                    icon={FiArrowLeft}
+                    title="Voltar"
+                    onClick={handleBack} 
+                     />
+
                     <h1>{data.title}</h1>
                     <Rating grade={data.rating} isBigSize={true}/>
                     
-                    <span><img src="https://github.com/vitortorquato.png" alt="foto de vitor torquato"/> Por {data.author} <FiClock/> {data.created_at}</span>
+                    <span><img src={avatarURL} alt={user.name}/> Por {user.name} <FiClock/> {formateDate}</span>
 
                     {data.tags && 
+                      
                       <footer>
                         {
-                        data.tags.map(tag => <Tag key={tag.id} title={tag.name}/> )
+                        data.tags.map(tag =>( 
+                        <Tag key={tag.id}
+                         title={tag.name}
+                        /> ))
                           }
                       </footer>
                       
                     }
 
                 </div>
-               )}  
+              
                <p>{data.description}</p>
+
+               <TextButton
+               title="Excluir filme" 
+               onClick={handleDeleteMovie}
+               />
             </Content>
+
          </main>
-      
+      }      
     </Container>
   )
 }

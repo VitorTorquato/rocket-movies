@@ -48,14 +48,9 @@ export const Form = styled.form`
 
 
     >header{
-          a{
-        display: flex;
-        align-items: center;
-        margin: 32px auto;
-        gap: 8px;
-        color: ${({theme}) => theme.COLORS.PINK_1};
-        text-decoration: none;
-        }
+       >h1{
+        margin-top: 1.6rem;
+       }
     }
 
         >div{
@@ -64,13 +59,10 @@ export const Form = styled.form`
         }    
         
         >.buttons{
-            display: flex;
-            gap: 40px;
+            width: 50%;
+            
 
-            >:nth-child(1){
-                background-color: ${({theme}) => theme.COLORS.BACKGROUND_900};
-                color: ${({theme}) => theme.COLORS.PINK_1};
-            }
+          
         }
        
       

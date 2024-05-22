@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+
 
 import { Container,Search,Profile ,Logout} from "./styles";
 
@@ -7,7 +7,9 @@ import { api } from "../../service/api";
 import { useAuth } from "../../hook/auth";
 
 
+
 import avatarPlaceHolder from '../../assets/avatar_placeholder.svg'
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -21,7 +23,13 @@ export function Header({children}){
 
         const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceHolder;
 
+        const navigation = useNavigate() 
         
+        function handleSignOut(){
+            navigation("/")
+            logOut();
+
+        }
       
 
         return(
@@ -32,7 +40,7 @@ export function Header({children}){
                 </Search>
                 <Profile to='/profile'>
                     <div>
-                        <span>Vitor Torquato</span>
+                        <span>{user.name}</span>
                         
                     </div>
                     <img src={avatarURL}
@@ -40,7 +48,7 @@ export function Header({children}){
                 </Profile>
                 <Logout
                          type="button"
-                         onClick={logOut}
+                         onClick={handleSignOut}
                         >
                             Sair
                         </Logout>

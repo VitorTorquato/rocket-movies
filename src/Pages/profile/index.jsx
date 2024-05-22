@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import {FiArrowLeft , FiCamera , FiMail , FiLock, FiUser } from 'react-icons/fi'
   
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 import { useAuth } from '../../hook/auth';
@@ -15,6 +15,7 @@ import { Container , Form , Avatar } from "./styles";
 
 import { Input } from '../../components/input'
 import { Button } from '../../components/button'
+import { TextButton } from '../../components/textButton'
 
 
 
@@ -33,9 +34,11 @@ export function Profile(){
         const [avatar , setAvatar] = useState(avatarURL);
         const [avatarFile , setAvatarFile] = useState(null);
 
-        
+        const navigate = useNavigate()
 
-
+        function handleBack(){
+            navigate(-1)
+        }
 
        async function handleUpdateUser(){
 
@@ -70,7 +73,11 @@ export function Profile(){
     return (
         <Container>
             <header>
-                <Link to="/"><FiArrowLeft/>Voltar</Link>
+                <TextButton
+                    icon={FiArrowLeft}
+                    title="Voltar"
+                    onClick={handleBack}
+                />
             </header>
                  
                 <Form>

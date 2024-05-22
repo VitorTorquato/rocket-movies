@@ -4,7 +4,6 @@ import { Container , Form } from "./styles";
 
 import { useNavigate } from 'react-router-dom';
 
-import { Link } from "react-router-dom";
 
 import { api } from '../../service/api';
 
@@ -14,7 +13,7 @@ import { TextArea } from '../../components/textArea'
 import { Section } from '../../components/section'
 import { MovieItem } from '../../components/movieItem'
 import { Button } from '../../components/button'
-import { TbUvIndex } from 'react-icons/tb';
+import { TextButton } from '../../components/textButton'
  
 
 export function NewMovie(){
@@ -29,6 +28,9 @@ export function NewMovie(){
     const [tags,setTags] = useState([]);
     const [newTag, setNewTag] = useState("");
 
+    function handleBack(){
+        navigate('/')
+    }
 
     function handleAddTag(){
         setTags(prevState => [...prevState,newTag]);
@@ -70,7 +72,7 @@ export function NewMovie(){
         alert("Filme cadastrado com sucesso");
 
 
-        navigate('/')
+        navigate(-1)
     }catch(error){
         if(error.response){
             alert(error.response.data.message)
@@ -78,7 +80,8 @@ export function NewMovie(){
             alert("Não foi possivel cadastrar a nota!")
         }
     }
-    
+
+ 
 
     }       
 
@@ -90,7 +93,13 @@ export function NewMovie(){
                 <main>
                     <Form>
                         <header>
-                            <Link to='/' > <FiArrowLeft/> Voltar</Link>
+                            <TextButton
+                             icon={FiArrowLeft} 
+                             title="Voltar"
+                             onClick={handleBack}    
+                            
+                            />
+
                             <h1>Novo filme</h1>
                         </header>
                         
@@ -144,8 +153,8 @@ export function NewMovie(){
                             </Section>
 
                             <div className='buttons'>
-                                <Button title="Excluir filme"/>
-                                <Button 
+                                
+                            <Button 
                                 title="Salvar alterações"
                                 onClick={handleNewMovie}
                                 />
